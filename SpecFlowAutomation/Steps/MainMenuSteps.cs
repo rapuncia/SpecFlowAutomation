@@ -1,4 +1,7 @@
-﻿using System;
+﻿using NUnit.Framework;
+using SpecFlowAutomation.Base;
+using SpecFlowAutomation.Pages;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,26 +24,30 @@ namespace SpecFlowAutomation.Steps
         [Given(@"customer opens Sportchek site")]
         public void CustomerOpensSportchekSite()
         {
-            ScenarioContext.Current.Pending();
+            HomePage.Instance.OpenSportchekHomePage();
         }
 
         [When(@"customer navigates to Women category on navbar")]
         public void CustomerNavigatesToWomenCategoryOnNavbar(string menuItem)
         {
-            ScenarioContext.Current.Pending();
+            HomePage.Instance.HoverMainMenuItem(menuItem);
         }
 
         [When(@"customer clicks Running subcategory")]
         public void CustomerClicksRunningSubcategory(string option)
         {
-            ScenarioContext.Current.Pending();
+            HomePage.Instance.ClickSubMenuItem(option);
         }
 
         [Then(@"Running subcategory page is opened")]
         public void RunningSubcategoryPageIsOpened(string title)
         {
-            ScenarioContext.Current.Pending();
+            Assert.IsTrue(RunningPage.Instance.IsPageTitleDisplayed(), "Page Title Is Not Displayed");
         }
-
+        [AfterTestRun]
+        public static void AfterTestRun()
+        {
+            DriverManager.QuitDriver();
+        }
     }
 }

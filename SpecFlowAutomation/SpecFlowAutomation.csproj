@@ -81,9 +81,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\DriverManager.cs" />
+    <Compile Include="Pages\BasePage.cs" />
+    <Compile Include="Pages\HomePage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Steps\MainMenuSteps.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Features\SportchekNavbarTest.feature" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
